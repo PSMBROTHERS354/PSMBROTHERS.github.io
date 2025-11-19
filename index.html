@@ -3,46 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple E-Commerce</title>
+    <title>Colorful E-Commerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1 class="logo">MyShop</h1>
+        <h1 class="logo">MyColorShop</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
 
+    <section class="hero">
+        <h2>Shop the Latest Trends!</h2>
+        <p>Colorful • Modern • Affordable</p>
+        <button class="shop-btn">Shop Now</button>
+    </section>
+
     <section class="products-section">
-        <h2>Featured Products</h2>
+        <h2>Trending Products</h2>
 
         <div class="products">
 
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>$10.99</p>
-                <button onclick="addToCart('Product 1')">Add to Cart</button>
+                <img src="https://via.placeholder.com/220x200/ff6f61/ffffff" alt="">
+                <h3>Fashion Sneakers</h3>
+                <p class="price">$24.99</p>
+                <button onclick="addToCart('Fashion Sneakers')">Add to Cart</button>
             </div>
 
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>$14.99</p>
-                <button onclick="addToCart('Product 2')">Add to Cart</button>
+                <img src="https://via.placeholder.com/220x200/6a5acd/ffffff" alt="">
+                <h3>Smart Headphones</h3>
+                <p class="price">$49.99</p>
+                <button onclick="addToCart('Smart Headphones')">Add to Cart</button>
             </div>
 
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>$8.99</p>
-                <button onclick="addToCart('Product 3')">Add to Cart</button>
+                <img src="https://via.placeholder.com/220x200/fed700/333" alt="">
+                <h3>Travel Backpack</h3>
+                <p class="price">$19.99</p>
+                <button onclick="addToCart('Travel Backpack')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/220x200/00c49a/ffffff" alt="">
+                <h3>Smart Watch</h3>
+                <p class="price">$34.99</p>
+                <button onclick="addToCart('Smart Watch')">Add to Cart</button>
             </div>
 
         </div>
     </section>
 
     <footer>
-        <p>© 2025 MyShop. All Rights Reserved.</p>
+        <p>© 2025 MyColorShop • Built with ♥</p>
     </footer>
 
     <script src="script.js"></script>
