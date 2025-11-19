@@ -1,68 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colorful E-Commerce</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smarklet — Shop Smart</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Smarklet</h1>
+    </div>
 
-    <header>
-        <h1 class="logo">MyColorShop</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <div class="search-cart">
+      <input id="search" type="search" placeholder="Search products..." />
+      <button id="signinBtn" class="btn small">Sign in</button>
+      <button id="signupBtn" class="btn small alt">Sign up</button>
 
+      <button id="cartToggle" class="btn cart-btn">
+        🛒 <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
     <section class="hero">
-        <h2>Shop the Latest Trends!</h2>
-        <p>Colorful • Modern • Affordable</p>
-        <button class="shop-btn">Shop Now</button>
+      <div class="hero-left">
+        <h2>Welcome to <span class="accent">Smarklet</span></h2>
+        <p>Colorful, modern marketplace. Click any product to see details and buy!</p>
+        <button id="shopNow" class="btn big">Shop Now</button>
+      </div>
+      <div class="hero-image">
+        <!-- uses uploaded image path as sample -->
+        <img src="/mnt/data/aa1fd428-6fb5-4510-9744-0fcee2da906d.png" alt="hero" />
+      </div>
     </section>
 
     <section class="products-section">
-        <h2>Trending Products</h2>
-
-        <div class="products">
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/220x200/ff6f61/ffffff" alt="">
-                <h3>Fashion Sneakers</h3>
-                <p class="price">$24.99</p>
-                <button onclick="addToCart('Fashion Sneakers')">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/220x200/6a5acd/ffffff" alt="">
-                <h3>Smart Headphones</h3>
-                <p class="price">$49.99</p>
-                <button onclick="addToCart('Smart Headphones')">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/220x200/fed700/333" alt="">
-                <h3>Travel Backpack</h3>
-                <p class="price">$19.99</p>
-                <button onclick="addToCart('Travel Backpack')">Add to Cart</button>
-            </div>
-
-            <div class="product-card">
-                <img src="https://via.placeholder.com/220x200/00c49a/ffffff" alt="">
-                <h3>Smart Watch</h3>
-                <p class="price">$34.99</p>
-                <button onclick="addToCart('Smart Watch')">Add to Cart</button>
-            </div>
-
-        </div>
+      <h2>Products</h2>
+      <div id="productsGrid" class="products-grid"></div>
     </section>
+  </main>
 
-    <footer>
-        <p>© 2025 MyColorShop • Built with ♥</p>
-    </footer>
+  <!-- Product Modal -->
+  <div id="productModal" class="modal hidden">
+    <div class="modal-panel">
+      <button class="close" id="closeProductModal">✕</button>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="product" />
+        <div class="modal-info">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+          <p class="price" id="modalPrice"></p>
+          <div class="modal-actions">
+            <label>
+              Qty:
+              <input id="modalQty" type="number" min="1" value="1" />
+            </label>
+            <button id="buyNow" class="btn">Buy</button>
+            <button id="addToCart" class="btn alt">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Cart Sidebar -->
+  <aside id="cartSidebar" class="cart-sidebar hidden">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button id="closeCart" class="close">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="totals">
+        <div>Subtotal:</div>
+        <div id="subtotal">₹0.00</div>
+      </div>
+      <div class="totals">
+        <div>Tax (5%):</div>
+        <div id="tax">₹0.00</div>
+      </div>
+      <div class="totals total">
+        <div>Total:</div>
+        <div id="totalAmount">₹0.00</div>
+      </div>
+
+      <button id="checkoutBtn" class="btn big">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Signin/Signup Modal -->
+  <div id="authModal" class="modal hidden">
+    <div class="modal-panel small">
+      <button class="close" id="closeAuthModal">✕</button>
+      <div id="authForms">
+        <!-- Sign In Form -->
+        <form id="signinForm" class="auth-form">
+          <h3>Sign In</h3>
+          <input id="signinEmail" type="email" placeholder="Email" required />
+          <input id="signinPassword" type="password" placeholder="Password" required />
+          <button class="btn" type="submit">Sign In</button>
+          <p class="link">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm" class="auth-form hidden">
+          <h3>Sign Up</h3>
+          <input id="signupName" type="text" placeholder="Full name" required />
+          <input id="signupEmail" type="email" placeholder="Email" required />
+          <input id="signupPassword" type="password" placeholder="Password" required />
+          <button class="btn" type="submit">Create account</button>
+          <p class="link">Already have account? <a href="#" id="showSignin">Sign in</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Smarklet — Built with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
