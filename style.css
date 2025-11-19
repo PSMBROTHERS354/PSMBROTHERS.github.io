@@ -2,70 +2,124 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    background: #f2f2f2;
+    background: #fdfdfd;
 }
 
+/* Header */
 header {
-    background: #333;
+    background: linear-gradient(45deg, #ff6f61, #ff9a9e);
+    padding: 20px;
     color: white;
-    padding: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
+nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(45deg, #6a5acd, #836fff);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.shop-btn {
+    margin-top: 15px;
+    background: #ffdd57;
+    color: #333;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.shop-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Product Section */
 .products-section {
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
 
 .products {
     display: flex;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 25px;
     margin-top: 20px;
 }
 
 .product-card {
     background: white;
+    width: 230px;
     padding: 15px;
-    border-radius: 10px;
-    width: 220px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .product-card img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-.product-card h3 {
-    margin-top: 10px;
+.price {
+    margin: 8px 0;
+    font-weight: 600;
+    color: #ff6f61;
 }
 
 .product-card button {
-    background: #333;
+    width: 100%;
+    background: #6a5acd;
     color: white;
     padding: 10px;
-    width: 100%;
     border: none;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .product-card button:hover {
-    background: #555;
+    background: #836fff;
 }
 
+/* Footer */
 footer {
     background: #333;
     color: white;
